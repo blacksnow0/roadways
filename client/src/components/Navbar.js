@@ -1,3 +1,5 @@
+import { faRightLeft } from "@fortawesome/free-solid-svg-icons";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
 
@@ -13,7 +15,11 @@ const Navbar = () => {
       <div className="max-w-7xl mx-auto flex justify-between items-center">
         {/* Brand Name */}
         <div className=" text-2xl text-purple-950 font-semibold font-dmSerifText tracking-widest">
-          <a href="/">ROADWAYS</a>
+          <a href="/">
+            ROAD
+            <FontAwesomeIcon className="mx-2" icon={faRightLeft} />
+            WAYS
+          </a>
         </div>
 
         {/* Mobile Hamburger Menu Button */}
@@ -22,29 +28,52 @@ const Navbar = () => {
           className=" md:hidden flex flex-col items-center justify-center space-y-1"
         >
           <span
-            className={`w-6 h-0.5 bg-black transition-all duration-300 ease-in-out transform ${
+            className={`w-6 h-1 bg-purple-900  transition-all duration-300 ease-in-out transform ${
               isOpen ? "rotate-45 translate-y-2" : ""
             }`}
           ></span>
           <span
-            className={`w-6 h-0.5 bg-black transition-all duration-300 ease-in-out ${
+            className={`w-6 h-1 bg-purple-900  transition-all duration-300 ease-in-out ${
               isOpen ? "opacity-0" : "opacity-100"
             }`}
           ></span>
           <span
-            className={`w-6 h-0.5 bg-black transition-all duration-300 ease-in-out transform ${
+            className={`w-6 h-1 bg-purple-900  transition-all duration-300 ease-in-out transform ${
               isOpen ? "-rotate-45 -translate-y-2" : ""
             }`}
           ></span>
         </button>
 
         {/* Desktop Menu */}
-        <div className="hidden md:flex space-x-6 ">
-          <Link to="/">Dashboard</Link>
-          <Link to="/workouts">Workouts</Link>
-          <Link to="/profile">Profile</Link>
-          <Link to="/settings">Settings</Link>
-          <Link to="/passenger-dashboard">Dashboard</Link>
+        <div className="hidden md:flex space-x-8 ">
+          <Link
+            className="relative text-purple-900 text-lg drop-shadow-sm group"
+            to="/workouts"
+          >
+            Workouts
+            <span className="absolute bottom-0 left-0 h-[2px] w-0 bg-purple-900 transition-all duration-300 ease-in-out group-hover:w-full"></span>
+          </Link>
+          <Link
+            className="relative text-purple-900 text-lg drop-shadow-sm group"
+            to="/profile"
+          >
+            Profile
+            <span className="absolute bottom-0 left-0 h-[2px] w-0 bg-purple-900 transition-all duration-300 ease-in-out group-hover:w-full"></span>
+          </Link>
+          <Link
+            className="relative text-purple-900 text-lg drop-shadow-sm group"
+            to="/settings"
+          >
+            Settings
+            <span className="absolute bottom-0 left-0 h-[2px] w-0 bg-purple-900 transition-all duration-300 ease-in-out group-hover:w-full"></span>
+          </Link>
+          <Link
+            className="relative text-purple-900 text-lg drop-shadow-sm group"
+            to="/passenger-dashboard"
+          >
+            Dashboard
+            <span className="absolute bottom-0 left-0 h-[2px] w-0 bg-purple-900 transition-all duration-300 ease-in-out group-hover:w-full"></span>
+          </Link>
         </div>
       </div>
 
@@ -55,16 +84,28 @@ const Navbar = () => {
         }`}
       >
         <div className=" space-y-4 mt-4">
-          <Link to="/" className="block hover:text-gray-300">
+          <Link
+            to="/"
+            className="block text-purple-900 drop-shadow-lg font-semibold"
+          >
             Dashboard
           </Link>
-          <Link to="/workouts" className="block hover:text-gray-300">
+          <Link
+            to="/workouts"
+            className="block text-purple-900 drop-shadow-lg font-semibold"
+          >
             Workouts
           </Link>
-          <Link to="/profile" className="block hover:text-gray-300">
+          <Link
+            to="/profile"
+            className="block text-purple-900 drop-shadow-lg font-semibold"
+          >
             Profile
           </Link>
-          <Link to="/settings" className="block hover:text-gray-300">
+          <Link
+            to="/settings"
+            className="block text-purple-900 drop-shadow-lg font-semibold"
+          >
             Settings
           </Link>
         </div>
