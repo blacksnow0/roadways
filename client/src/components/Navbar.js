@@ -11,7 +11,7 @@ const Navbar = () => {
   };
 
   return (
-    <nav className="fixed top-0 w-full p-4 bg-transparent">
+    <nav className="fixed top-0 w-full p-2 md:p-4  backdrop-blur-md bg-white/30 shadow-lg">
       <div className="max-w-7xl mx-auto flex justify-between items-center">
         {/* Brand Name */}
         <div className=" text-2xl text-purple-950 font-semibold font-dmSerifText tracking-widest">
@@ -47,43 +47,43 @@ const Navbar = () => {
         {/* Desktop Menu */}
         <div className="hidden md:flex space-x-8 ">
           <Link
-            className="relative text-purple-900 text-lg drop-shadow-sm group"
+            className="relative text-purple-900 font-semibold text-lg drop-shadow-sm group"
             to="/workouts"
           >
             Workouts
-            <span className="absolute bottom-0 left-0 h-[2px] w-0 bg-purple-900 transition-all duration-300 ease-in-out group-hover:w-full"></span>
+            <span className="absolute bottom-0 left-0 h-[3px] w-0 bg-purple-900 transition-all duration-300 ease-in-out group-hover:w-full"></span>
           </Link>
           <Link
-            className="relative text-purple-900 text-lg drop-shadow-sm group"
+            className="relative text-purple-900 font-semibold text-lg drop-shadow-sm group"
             to="/profile"
           >
             Profile
-            <span className="absolute bottom-0 left-0 h-[2px] w-0 bg-purple-900 transition-all duration-300 ease-in-out group-hover:w-full"></span>
+            <span className="absolute bottom-0 left-0 h-[3px] w-0 bg-purple-900 transition-all duration-300 ease-in-out group-hover:w-full"></span>
           </Link>
           <Link
-            className="relative text-purple-900 text-lg drop-shadow-sm group"
+            className="relative text-purple-900 font-semibold text-lg drop-shadow-sm group"
             to="/settings"
           >
             Settings
-            <span className="absolute bottom-0 left-0 h-[2px] w-0 bg-purple-900 transition-all duration-300 ease-in-out group-hover:w-full"></span>
+            <span className="absolute bottom-0 left-0 h-[3px] w-0 bg-purple-900 transition-all duration-300 ease-in-out group-hover:w-full"></span>
           </Link>
           <Link
-            className="relative text-purple-900 text-lg drop-shadow-sm group"
+            className="relative text-purple-900 font-semibold text-lg drop-shadow-sm group"
             to="/passenger-dashboard"
           >
             Dashboard
-            <span className="absolute bottom-0 left-0 h-[2px] w-0 bg-purple-900 transition-all duration-300 ease-in-out group-hover:w-full"></span>
+            <span className="absolute bottom-0 left-0 h-[3px] w-0 bg-purple-900 transition-all duration-300 ease-in-out group-hover:w-full"></span>
           </Link>
         </div>
       </div>
 
       {/* Mobile Menu (Visible when isOpen is true) */}
       <div
-        className={`md:flex space-x-4  mt-4 md:mt-0 transition-all duration-500 ease-in-out overflow-hidden ${
+        className={`md:flex space-x-4 mt-1 md:mt-0 transition-all duration-500 ease-in-out overflow-hidden bg-white bg-opacity-100 p-2 ${
           isOpen ? "max-h-96 opacity-100" : "max-h-0 opacity-0"
         }`}
       >
-        <div className=" space-y-4 mt-4">
+        <div className=" space-y-4 ">
           <Link
             to="/"
             className="block text-purple-900 drop-shadow-lg font-semibold"

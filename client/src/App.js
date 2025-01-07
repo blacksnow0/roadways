@@ -11,12 +11,14 @@ const App = () => {
     <Router>
       <Navbar />
 
-      <Routes>
-        <Route path="/" element={<Home />} />
-        <Route path="/driver-dashboard" element={<DriverDashboard />} />
-        <Route path="/passenger-dashboard" element={<PassengerDashboard />} />
-        <Route path="/contact" element={<Contact />} />
-      </Routes>
+      <div className="mt-10">
+        <Routes>
+          <Route path="/" element={<Home />} />
+          <Route path="/driver-dashboard" element={<DriverDashboard />} />
+          <Route path="/passenger-dashboard" element={<PassengerDashboard />} />
+          <Route path="/contact" element={<Contact />} />
+        </Routes>
+      </div>
     </Router>
   );
 };
