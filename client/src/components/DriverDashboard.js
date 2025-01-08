@@ -4,6 +4,7 @@ import driver from "../Assets/driver.webp";
 import {
   faLocationArrow,
   faCalendarAlt,
+  faLocationDot,
 } from "@fortawesome/free-solid-svg-icons";
 
 import { useAuth } from "../context/AuthContext";
@@ -13,13 +14,7 @@ const DriverDashboard = () => {
   const [destination, setDestination] = useState("");
   const [dateOfTravel, setDateOfTravel] = useState("");
   const [locationSuggestions, setLocationSuggestions] = useState([]);
-  const [isAvailable, setIsAvailable] = useState(false);
-  const { logout, user } = useAuth();
-
-  const handleLogout = async () => {
-    logout();
-  };
-
+  const { user } = useAuth();
   const fetchLocationSuggestions = async (query, setLocation) => {
     if (!query) {
       setLocationSuggestions([]);
@@ -48,10 +43,6 @@ const DriverDashboard = () => {
     fetchLocationSuggestions(value, setLocation);
   };
 
-  const toggleAvailability = () => {
-    setIsAvailable((prev) => !prev);
-  };
-
   const handleSaveEvent = () => {
     if (!startingLocation || !destination || !dateOfTravel) {
       alert("Please fill in all fields before saving the event.");
@@ -62,7 +53,6 @@ const DriverDashboard = () => {
       startingLocation,
       destination,
       dateOfTravel,
-      availability: isAvailable,
     };
 
     console.log("Travel Event Saved:", travelEvent);
@@ -71,9 +61,9 @@ const DriverDashboard = () => {
 
   return (
     <div className="min-h-screen bg-gradient-to-r from-purple-300 to-purple-400 flex items-center justify-center p-6">
-      <div className="bg-white shadow-lg rounded-lg flex flex-col md:flex-row max-w-4xl w-full">
+      <div className="bg-white shadow-2xl rounded-lg overflow-hidden flex flex-col md:flex-row max-w-4xl w-full">
         {/* Image Section */}
-        <div className="hidden md:block md:w-1/2 flex items-center justify-center p-6 bg-gradient-to-br from-gray-500 to-gray-800">
+        <div className="hidden md:block md:w-1/2 bg-gradient-to-br from-gray-500 to-gray-800 flex items-center justify-center p-6">
           <img
             src={driver}
             alt="Driver"
@@ -83,13 +73,17 @@ const DriverDashboard = () => {
 
         {/* Form Section */}
         <div className="md:w-1/2 p-8">
-          <h2 className="font-inter font-semibold text-lg text-gray-700 tracking-wide text-center">
+          <h2 className="font-inter font-bold text-2xl text-gray-700 tracking-wide text-center mb-6">
             {user.displayName}
           </h2>
 
           {/* Starting Location */}
           <div className="mb-6">
-            <label className="block text-gray-600 font-medium mb-2">
+            <label className="block text-gray-700 font-semibold font-inter mb-2">
+              <FontAwesomeIcon
+                icon={faLocationDot}
+                className="text-2xl text-purple-900 mr-2"
+              />
               Starting Location
             </label>
             <div className="relative">
@@ -109,7 +103,11 @@ const DriverDashboard = () => {
 
           {/* Destination */}
           <div className="mb-6">
-            <label className="block text-gray-600 font-medium mb-2">
+            <label className="block text-gray-700 font-semibold font-inter mb-2">
+              <FontAwesomeIcon
+                icon={faLocationDot}
+                className="text-2xl text-purple-900 mr-2"
+              />
               Destination
             </label>
             <div className="relative">
@@ -129,7 +127,11 @@ const DriverDashboard = () => {
 
           {/* Date of Travel */}
           <div className="mb-6">
-            <label className="block text-gray-600 font-medium mb-2">
+            <label className="block text-gray-700 font-semibold font-inter mb-2">
+              <FontAwesomeIcon
+                icon={faCalendarAlt}
+                className="text-2xl text-purple-900 mr-2"
+              />
               Date of Travel
             </label>
             <div className="relative">
@@ -146,27 +148,10 @@ const DriverDashboard = () => {
             </div>
           </div>
 
-          {/* Availability Toggle */}
-          <div className="mb-6">
-            <label className="block text-gray-600 font-medium mb-2">
-              Availability
-            </label>
-            <button
-              onClick={toggleAvailability}
-              className={`w-full py-3 rounded-lg text-lg font-semibold text-white shadow-md transition duration-300 ${
-                isAvailable
-                  ? "bg-green-500 hover:bg-green-600"
-                  : "bg-gray-400 hover:bg-gray-500"
-              }`}
-            >
-              {isAvailable ? "Available" : "Unavailable"}
-            </button>
-          </div>
-
           {/* Save Event Button */}
           <button
             onClick={handleSaveEvent}
-            className="w-full py-3 bg-purple-600 rounded-lg text-white text-lg font-semibold tracking-wide hover:bg-purple-700 shadow-md transition duration-300"
+            className="w-full py-3 bg-purple-600 rounded-lg text-white text-lg font-bold tracking-wide hover:bg-purple-700 shadow-lg transition duration-300"
           >
             Save Event
           </button>

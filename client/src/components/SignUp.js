@@ -10,7 +10,7 @@ const SignUp = () => {
     try {
       console.log("this worked");
       await googleSignUp();
-      navigate("/dashboard");
+      navigate("/");
     } catch (err) {
       console.error("Error with Google Sign-In:", err.message);
     }

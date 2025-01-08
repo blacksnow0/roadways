@@ -7,7 +7,7 @@ const App = () => {
   return (
     <Router>
       <Navbar />
-      <div className="mt-10">
+      <div>
         <AppRoutes />
       </div>
     </Router>
