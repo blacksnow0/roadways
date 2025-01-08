@@ -2,12 +2,19 @@ import { faRightLeft } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
+import { useAuth } from "../context/AuthContext";
 
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
 
   const handleToggle = () => {
     setIsOpen(!isOpen);
+  };
+
+  const { user, logout } = useAuth();
+
+  const handleLogout = () => {
+    logout();
   };
 
   return (
@@ -74,6 +81,15 @@ const Navbar = () => {
             Dashboard
             <span className="absolute bottom-0 left-0 h-[3px] w-0 bg-purple-900 transition-all duration-300 ease-in-out group-hover:w-full"></span>
           </Link>
+          {user ? (
+            <div>
+              <button onClick={handleLogout} className="p-3">
+                Logout
+              </button>
+            </div>
+          ) : (
+            <></>
+          )}
         </div>
       </div>
 

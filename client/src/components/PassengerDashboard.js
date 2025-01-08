@@ -7,6 +7,8 @@ import {
   faSpinner,
 } from "@fortawesome/free-solid-svg-icons";
 
+import { useAuth } from "../context/AuthContext";
+
 const PassengerDashboard = () => {
   const [pickupLocation, setPickupLocation] = useState("");
   const [pickupSuggestions, setPickupSuggestions] = useState([]);
@@ -15,6 +17,7 @@ const PassengerDashboard = () => {
   const [currentLocation, setCurrentLocation] = useState(null);
   const [loading, setLoading] = useState(false);
 
+  const { user } = useAuth();
   // Handle getting the current location when the icon is clicked
   const getCurrentLocation = () => {
     if (navigator.geolocation) {
@@ -98,6 +101,9 @@ const PassengerDashboard = () => {
   return (
     <div className="h-screen bg-gradient-to-r from-purple-300 to-purple-400 flex items-center justify-center p-6">
       <div className="bg-white p-8 rounded-lg shadow-lg w-full sm:w-96 space-y-6">
+        <h2 className="font-inter font-semibold text-lg text-gray-700 tracking-wide ">
+          {user.displayName}
+        </h2>
         {/* Pickup Location */}
         <div className="flex flex-col space-y-2 relative">
           <label className="font-inter font-semibold text-lg text-gray-700 tracking-wide">

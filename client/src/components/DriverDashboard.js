@@ -6,12 +6,19 @@ import {
   faCalendarAlt,
 } from "@fortawesome/free-solid-svg-icons";
 
+import { useAuth } from "../context/AuthContext";
+
 const DriverDashboard = () => {
   const [startingLocation, setStartingLocation] = useState("");
   const [destination, setDestination] = useState("");
   const [dateOfTravel, setDateOfTravel] = useState("");
   const [locationSuggestions, setLocationSuggestions] = useState([]);
   const [isAvailable, setIsAvailable] = useState(false);
+  const { logout, user } = useAuth();
+
+  const handleLogout = async () => {
+    logout();
+  };
 
   const fetchLocationSuggestions = async (query, setLocation) => {
     if (!query) {
@@ -76,8 +83,8 @@ const DriverDashboard = () => {
 
         {/* Form Section */}
         <div className="md:w-1/2 p-8">
-          <h2 className="text-3xl font-bold text-center mb-6 text-gray-800">
-            Driver Dashboard
+          <h2 className="font-inter font-semibold text-lg text-gray-700 tracking-wide text-center">
+            {user.displayName}
           </h2>
 
           {/* Starting Location */}
