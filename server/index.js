@@ -1,7 +1,13 @@
 const express = require("express");
-
+const connectDb = require("./config/db");
+const colors = require("colors");
 const app = express();
-const PORT = process.env.PORT || 5005;
+
+require("dotenv").config();
+
+const PORT = process.env.PORT || 5004;
+connectDb();
+
 app.get("/", (req, res) => {
   res.send("Welcome to the Express server");
 });
@@ -18,5 +24,5 @@ app.use((req, res) => {
 });
 
 app.listen(PORT, () => {
-  console.log(`Server running on http://localhost:${PORT}`);
+  console.log(`Server running on http://localhost:${PORT}`.yellow.bold);
 });

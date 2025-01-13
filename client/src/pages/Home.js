@@ -5,7 +5,7 @@ import { faCar, faUser, faRightLeft } from "@fortawesome/free-solid-svg-icons";
 
 const HomePage = () => {
   return (
-    <div className="min-h-screen bg-gradient-to-r from-purple-300 to-purple-400 flex flex-col items-center justify-center p-6">
+    <div className="min-h-screen bg-white flex flex-col items-center justify-center p-6">
       <div className="max-w-4xl w-full text-center">
         {/* Branding Section */}
         <h1 className="text-2xl md:text-4xl font-bold text-purple-900 tracking-wide md:drop-shadow-lg mb-5">
