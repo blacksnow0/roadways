@@ -10,7 +10,7 @@ import { useAuth } from "./context/AuthContext";
 
 // PrivateRoute component to handle protected routes
 const PrivateRoute = ({ children }) => {
-  const { user } = useAuth(); // Get the user from AuthContext
+  const { user } = useAuth();
   return user ? children : <Navigate to="/login" />;
 };
 

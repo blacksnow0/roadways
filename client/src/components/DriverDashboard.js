@@ -34,6 +34,7 @@ const DriverDashboard = () => {
       setLocationSuggestions(suggestions);
     } catch (error) {
       console.error("Error fetching location suggestions:", error);
+      console.log(locationSuggestions);
     }
   };
 
@@ -63,7 +64,7 @@ const DriverDashboard = () => {
     <div className="min-h-screen bg-gradient-to-r from-purple-300 to-purple-400 flex items-center justify-center p-6">
       <div className="bg-white shadow-2xl rounded-lg overflow-hidden flex flex-col md:flex-row max-w-4xl w-full">
         {/* Image Section */}
-        <div className="hidden md:block md:w-1/2 bg-gradient-to-br from-gray-500 to-gray-800 flex items-center justify-center p-6">
+        <div className="md:block md:w-1/2 bg-gradient-to-br from-gray-500 to-gray-800 flex items-center justify-center p-6">
           <img
             src={driver}
             alt="Driver"
